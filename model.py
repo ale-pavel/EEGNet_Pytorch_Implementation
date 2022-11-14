@@ -47,6 +47,12 @@ class EEGNet(nn.Module):
 
     def ClassifierBlock(self, inputSize, n_classes):
         return nn.Sequential(
+            nn.Linear(inputSize, n_classes, bias=False)
+            # nn.Softmax(dim=1)
+        )
+
+    def ClassifierBlockExtended(self, inputSize, n_classes):
+        return nn.Sequential(
             nn.Linear(inputSize, 512, bias=False),
             nn.Linear(512, 128, bias=False),
             nn.Linear(128, 32, bias=False),
