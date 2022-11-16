@@ -45,6 +45,7 @@ class EEGNet(nn.Module):
             nn.Dropout(p=dropoutRate))
         return nn.Sequential(block1, block2)
 
+
     def ClassifierBlock(self, inputSize, n_classes):
         return nn.Sequential(
             nn.Linear(inputSize, n_classes, bias=False)
